@@ -19,6 +19,7 @@ import { ProductCrudComponent } from './views/product-crud/product-crud.componen
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [ // aqui ficam os componentes que serão renderizados no index.html
@@ -38,9 +39,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule, // importei
     MatListModule, // importei
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [], // aqui iria os services que eu gostaria de expor para fora do módulo
   bootstrap: [AppComponent]
 })
 export class AppModule { }
