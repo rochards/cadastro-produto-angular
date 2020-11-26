@@ -1,3 +1,7 @@
+<!--
+    Para utilizar essas tags "especiais", precisei importar MatSidenavModule e
+    MatListModule em app.module.ts
+-->
 <mat-sidenav-container class="container">
     <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true"
         fixedTopGap="64">
@@ -16,4 +20,7 @@
             </a>
         </mat-nav-list>
     </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <app-home></app-home>
+    </mat-sidenav-content>
 </mat-sidenav-container>
