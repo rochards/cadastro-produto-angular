@@ -7,7 +7,6 @@ Comandos executados:
 - $ ng new frontend --minimal
 - $ ng add @angular/material. Escolhido: Indigo/Pink; Set up global/browser = yes;
 
-Foi escolhidos yes para rotas.
 Para rodar o frontend bastar executar o comando $ ng serve.
 
 ## Backend
