@@ -21,6 +21,8 @@ import { ProductCreateComponent } from './components/product/product-create/prod
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [ // aqui ficam os componentes que serão renderizados no index.html
     AppComponent,
@@ -40,7 +42,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     MatListModule, // importei
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [], // aqui iria os services que eu gostaria de expor para fora do módulo
   bootstrap: [AppComponent]

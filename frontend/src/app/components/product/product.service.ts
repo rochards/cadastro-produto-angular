@@ -1,13 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'; // preciso importar o material lá no app.module.ts
+import { Observable } from 'rxjs';
+import { Product } from './product.model';
 
-// essa anotação indica que essa classe pode ser injeta em outros componentes
+/**
+ * Essa anotação indica que essa classe pode ser injeta em outros componentes
+ * Esse service é um singleton. Ele é compartilhado entre todos os componentes
+ * que o solicite, ou seja, não é criado mais de uma instância dele.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private snackBar: MatSnackBar) { }
+  baseUrl = 'http://localhost:3001/products';
+
+  constructor(
+    private snackBar: MatSnackBar,
+    private http: HttpClient
+  ) { }
 
   showMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
@@ -15,5 +27,9 @@ export class ProductService {
       horizontalPosition: 'right',
       verticalPosition: 'top'
     });
+  }
+
+  create(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.baseUrl, product);
   }
 }
