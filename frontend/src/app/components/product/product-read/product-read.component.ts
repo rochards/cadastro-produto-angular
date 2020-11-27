@@ -10,7 +10,7 @@ import { ProductService } from '../product.service';
 export class ProductReadComponent implements OnInit {
 
   products!: Product[];
-  headers = ['id', 'name', 'price']
+  headers = ['id', 'name', 'price', 'action']
 
   // a injeção de dependências só funciona no construtor
   constructor(private productService: ProductService) { }
