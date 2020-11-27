@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule , LOCALE_ID} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,13 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProductReadComponent } from './components/product/product-read/product-read.component'
+import { MatTableModule } from '@angular/material/table';
+
+// as próximas 4 linhas são necessárias para formatar a moeda de acordo com o Brasil
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt)
 
 @NgModule({
   declarations: [ // aqui ficam os componentes que serão renderizados no index.html
@@ -51,9 +58,13 @@ import { ProductReadComponent } from './components/product/product-read/product-
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
-  providers: [], // aqui iria os services que eu gostaria de expor para fora do módulo
+  providers: [{
+    provide: LOCALE_ID, // isso para usar o formato de modela do Brasil
+    useValue: 'pt-BR'
+  }], // aqui iria os services que eu gostaria de expor para fora do módulo
   bootstrap: [AppComponent]
 })
 export class AppModule { }
