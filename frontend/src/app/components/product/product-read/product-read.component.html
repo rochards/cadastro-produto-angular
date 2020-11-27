@@ -29,7 +29,7 @@
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>Ações</th>
             <td mat-cell *matCellDef="let product">
-                <a routerLink="">
+                <a routerLink="/products/update/{{ product.id }}">
                     <!--
                         Lembrando que esse íncones são do Angular material
                     -->
