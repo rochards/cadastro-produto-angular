@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductDeleteComponent } from '../product-delete/product-delete.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-read',
@@ -13,14 +16,30 @@ export class ProductReadComponent implements OnInit {
   headers = ['id', 'name', 'price', 'action']
 
   // a injeção de dependências só funciona no construtor
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     // o método read() retorna um observable
     this.productService.read().subscribe(products => {
       this.products = products
-      console.log(this.products)
     })
   }
 
+  openDeleteDialog(id: string): void {
+    const dialogRef = this.dialog.open(ProductDeleteComponent, {
+      data: {
+        id
+      }
+    })
+
+    // ação para quando o usuário fechar o dialog
+    dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate(['/products'])
+    })
+  }
 }

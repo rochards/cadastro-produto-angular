@@ -3,13 +3,15 @@ table {
 }
 
 a {
-    margin-right: 5px;
+    
 }
 
 i.edit {
+    margin-top: 5px;
     color: rgb(231, 206, 96);
 }
 
-i.delete {
-    color: rgb(224, 85, 85);
+div.actions {
+    display: flex;
+    align-items: center;
 }

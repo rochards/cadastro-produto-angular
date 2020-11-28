@@ -27,11 +27,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProductReadComponent } from './components/product/product-read/product-read.component'
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // as próximas 4 linhas são necessárias para formatar a moeda de acordo com o Brasil
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
+import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
+import { MatIconModule } from '@angular/material/icon';
 
 registerLocaleData(localePt)
 
@@ -45,7 +48,8 @@ registerLocaleData(localePt)
     ProductCrudComponent,
     ProductCreateComponent,
     ProductReadComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    ProductDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ registerLocaleData(localePt)
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [{
     provide: LOCALE_ID, // isso para usar o formato de modela do Brasil

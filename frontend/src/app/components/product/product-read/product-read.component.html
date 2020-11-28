@@ -29,19 +29,22 @@
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>Ações</th>
             <td mat-cell *matCellDef="let product">
-                <a routerLink="/products/update/{{ product.id }}">
-                    <!--
-                        Lembrando que esse íncones são do Angular material
-                    -->
-                    <i class="material-icons edit">
-                        edit
-                    </i>
-                </a>
-                <a routerLink="">
-                    <i class="material-icons delete">
-                        delete
-                    </i>
-                </a>
+                <div class="actions">
+                    <a routerLink="/products/update/{{ product.id }}">
+                        <!--
+                            Lembrando que esse íncones são do Angular material
+                        -->
+                        <i class="material-icons edit">
+                            edit
+                        </i>
+                    </a>
+                    <button mat-icon-button color="warn" 
+                        (click)="openDeleteDialog(product.id)">
+                        <mat-icon class="delete">
+                            delete
+                        </mat-icon>
+                    </button>
+                </div>
             </td>
         </ng-container>
     
