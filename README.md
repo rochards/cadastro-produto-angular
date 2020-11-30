@@ -1,5 +1,7 @@
 # Criando um app para cadastro de produtos.
 
+Uma aplicação simples para estudos de Angular 10. Foi criado um sistema que realiza as quatro operações básicas CRUD: create, reade, update e delete.
+
 ## Frontend
 
 Comandos executados:
